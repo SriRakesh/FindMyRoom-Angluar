@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ footer{
+    
+    bottom: 0px;
+    width: 100%;
+    background-color: rgb(39, 38, 38);
+    color: white;
+    
+   
+}

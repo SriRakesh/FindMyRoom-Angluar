@@ -1,0 +1,44 @@
+.cards{
+   width:75vh;
+   margin-left: 20px;
+   height: 63vh;
+   background-color:rgb(228, 228, 240);
+}
+h1{
+    color: rgb(216, 59, 59)
+}
+
+.tab {  
+   color: #333;
+   font-family: Helvetica, Arial, sans-serif; 
+   font-size: 14px;
+   width: 70%; 
+   border-collapse: 
+   collapse; border-spacing: 0; 
+}
+
+td, th {  
+   border: 1px solid transparent; 
+   height: 30px;
+   padding: 15px; 
+   transition: all 0.3s; 
+}
+
+th {  
+   background: #DFDFDF;  
+   font-weight: bold;
+}
+section{
+   height: 70vh;
+}
+
+td {  
+   background: #FAFAFA;
+   text-align: center;
+}
+      
+.tr1:nth-child(even) td { background: #F1F1F1; }   
+      
+.tr1:nth-child(odd) td { background: #FEFEFE; }  
+
+.tr1 td:hover { background: #666; color: #FFF; }

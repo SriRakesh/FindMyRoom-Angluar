@@ -1,0 +1,177 @@
+<!-- <button routerLink="/features/addroom">addroom</button> -->
+<!DOCTYPE html>
+<head>
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+   
+  <div id="signup" align="center">
+    <div class="container">
+      
+      <div align="center" id="ui">
+       <!-- <mat-icon class="mat-icon-clear">clear</mat-icon> -->
+    <form class="example-form" [formGroup]="SignUp" autocomplete="off">
+      <h2 class="title">Registration Form</h2>
+        <br>
+    <table>
+   <tr>
+      <td>Full Name </td>
+      <td>
+        <mat-form-field class="example-full-width">
+        <input matInput maxlength="40" pattern="^[a-zA-Z\s]*$" placeholder="Full Name" formControlName="FullName">
+        <mat-error *ngIf="f.FullName.hasError('required')&& f.FullName.invalid">
+            Name is required
+        </mat-error>
+        <mat-error *ngIf="f.FullName.hasError('pattern')">
+          Full name should not contain numbers.
+        </mat-error>
+        <mat-error *ngIf="f.FullName.hasError('maxlength')">
+          Name should not have more than 40 characters.
+        </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>Email</td>
+      <td>
+        <mat-form-field class="example-full-width">
+        <input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" matInput maxlength="50" placeholder="Email" formControlName="Email"> 
+        <!-- <mat-error *ngIf="f.Email.hasError('email') && !f.Email.hasError('required')">
+          Please enter a valid email address
+        </mat-error> -->
+
+        
+        <mat-error *ngIf="f.Email.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="f.Email.hasError('maxlength')">
+          Email should not have more than 50 characters.
+        </mat-error>
+        <mat-error *ngIf="f.Email.hasError('pattern')">
+          Email is invalid, enter 2 to 5 characters after "."
+        </mat-error>
+      </mat-form-field></td> </tr>
+    <tr>
+        <td>Mobile Number </td>
+        <td>
+      <mat-form-field class="example-full-width">
+        
+          <span matPrefix>+91 &nbsp;</span>
+         <input onkeypress="if(this.value.length==10) return false" type="tel" matInput type="number" placeholder="Mobile Number" formControlName="MobileNumber">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+
+          <mat-error *ngIf="f.MobileNumber.hasError('required')&& f.MobileNumber.invalid ">
+              Mobile Number is not valid
+           </mat-error>
+
+           <mat-error *ngIf="f.MobileNumber.hasError('minlength') || f.MobileNumber.hasError('maxlength') || f.MobileNumber.hasError('pattern')">
+               The mobile number should starts with 9/8/7/6 and it should contain 10 digits only.
+           </mat-error>
+
+       </mat-form-field></td>
+      </tr>
+      <tr>
+          <td>Address</td>
+          <td>
+       <mat-form-field class="example-full-width">
+         
+          <input maxlength="100" matInput placeholder="Address" formControlName="Address">
+
+           <mat-error *ngIf="f.Address.hasError('required')&& f.Address.invalid">
+               Address is required
+            </mat-error>
+            <mat-error *ngIf="f.Address.hasError('maxlength')">
+               Address should have maximum length of 100 characters only.
+            </mat-error>
+       </mat-form-field></td>
+      </tr>
+      <!-- <tr>
+          <td>User Name </td>
+          <td>
+       <mat-form-field class="example-full-width">
+        
+         <input pattern="^[a-zA-Z0-9]+" matInput placeholder="User Name" formControlName="UserName">
+
+           <mat-error *ngIf="f.UserName.hasError('required')&& f.UserName.invalid">
+               User Name is required
+            </mat-error>
+            <mat-error *ngIf="f.UserName.hasError('pattern')">
+              Username should not have any spaces and special characters.
+            </mat-error>
+          </mat-form-field></td>
+      </tr> -->
+      <tr>
+          <td>Password </td>
+      <td> <mat-form-field class="example-full-width">
+         
+         <input matInput minlength="8"  [type]="hide ? 'password' : 'text'" pattern="(?=^.{6,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" type="password" placeholder="Enter your password" formControlName="Password">
+         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off': 'visibility'}}</mat-icon>
+          <mat-error *ngIf="f.Password.hasError('required')&& f.Password.invalid">
+              Password is required
+           </mat-error>
+           <mat-hint>The password should contain atleast 8 characters with atleast one uppercase character,one special character and one number</mat-hint>
+           <mat-error *ngIf="f.Password.hasError('minlength') || f.Password.hasError('pattern')">
+             Password is invalid
+          </mat-error>
+        </mat-form-field></td>
+      </tr>
+      <br>
+      <br>
+      <tr>
+        <td>Confirm Password </td>
+       <td><mat-form-field class="example-full-width" >
+            <input matInput [type]="hide ? 'password' :'text' " placeholder="Confirm Password"  type="password"  formControlName="ConfirmPassword">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off'  :'visibility'}}</mat-icon>
+            <mat-error *ngIf="f.ConfirmPassword.hasError('required') && f.ConfirmPassword.invalid ">
+                Password is required
+             </mat-error>
+             <!-- <div *ngIf="f.ConfirmPassword.errors.mustMatch">Passwords must match</div> -->
+             <mat-error *ngIf="f.ConfirmPassword.hasError('mustMatch')">
+               Password mismatch.
+             </mat-error>
+
+       </mat-form-field></td> 
+      </tr>
+      <br>
+      <tr>
+        <td>Select Type </td>
+          <td>
+         <mat-radio-group formControlName="Type" required>
+            <mat-radio-button value="Partner">Partner</mat-radio-button> &nbsp;&nbsp;
+            <mat-radio-button value="Renter">Renter</mat-radio-button>
+          </mat-radio-group>
+        </tr>
+        <br>
+        <tr><td colspan="2">
+        <div align="center">
+            <button class="btn btn-primary" (click)="Onsubmit()">SignUp</button> &nbsp;&nbsp;
+            <button class="btn btn-primary" mat-dialog-close>Cancel</button>
+         </div>
+        </td> </tr>
+      </table>
+</form>
+</div>
+</div>
+<!-- </div> -->
+</div>
+<br><br>
+</body>
+
+
+
+<!-- [type]="hide ? 'text' :'password' "
+ [type]="hide ? 'text' : 'password'"
+ <mat-icon matSuffix (click)="hide = !hide">{{hide ?  'visibility' :'visibility_off'}}</mat-icon>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+      [disabled]="SignUp.isInvalid"
+--> 
+
+

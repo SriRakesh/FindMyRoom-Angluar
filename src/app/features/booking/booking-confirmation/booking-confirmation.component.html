@@ -1,0 +1,60 @@
+<br>
+<h1 align="center">Payment</h1>
+<br><br><br>
+<div >
+    
+ <table align="center"  >
+   <th></th>
+   <th>Room No</th>
+   <th>Cost</th>
+   <th>No Of Beds</th>
+   <th>City</th>
+   <th>Area</th>
+   <th>Room Type</th>
+   <th>Furniture</th>
+   <th>Description</th>
+  
+   <tr>
+     <td><img src="https://findmyroomwebapp.azurewebsites.net/api/{{roomToBeBooked.room.roomId}}" style="width:300px;height: 300px;"></td>
+     <td>{{roomToBeBooked.room.roomId}}</td>
+     <td>{{roomToBeBooked.room.cost}}</td>
+     <td>{{roomToBeBooked.room.noOfBeds}}</td>
+     <td>{{roomToBeBooked.room.city}}</td>
+     <td>{{roomToBeBooked.room.area}}</td>
+     <td>{{roomToBeBooked.room.roomType}}</td>
+     <td>{{roomToBeBooked.room.furniture}}</td>
+     <td>{{roomToBeBooked.room.description}}</td>
+   </tr>
+ </table>
+</div>
+<br><br>
+
+<div align="center">
+  <h2>Payment Options</h2>
+  
+<div align="center">
+      <mat-radio-group  >
+        
+          &nbsp; <mat-radio-button value="Paytm" checked>Paytm</mat-radio-button>  <br>
+          &nbsp;&nbsp;  &nbsp;      &nbsp;  &nbsp;  <mat-radio-button value="Debit Card">Debit Card</mat-radio-button> <br>
+          &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;   &nbsp;  <mat-radio-button value="Credit Card">Credit Card</mat-radio-button><br>
+           <mat-radio-button value="UPI">UPI</mat-radio-button> 
+
+       
+         
+        </mat-radio-group>
+      </div>
+<br>
+<div style="clear: both">
+       <h4>Total:  {{roomToBeBooked.room.cost}}</h4>  <h4></h4>
+       <br>
+       <button mat-raised-button color="primary"  matTooltip="Book this room"  matTooltipPosition="above"
+       matTooltipClass="example-tooltip-red" (click)="finallyBook()">Book</button>
+<br>
+<br>
+      </div>
+</div>
+
+<div>
+
+</div>

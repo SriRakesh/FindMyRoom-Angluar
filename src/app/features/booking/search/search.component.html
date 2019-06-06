@@ -1,0 +1,129 @@
+<!-- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" -->
+<!-- integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" -->
+
+<html>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+<section class="back-img">
+<div>
+  <br><br><br><br><br><br>
+    <div class="container">
+    <div class="col-sm-2"></div>
+      <div class="col-sm-6" style="box-shadow: 1px 3px rgb(204, 202, 202);
+      background-color: whitesmoke;border-radius: 20px;">
+        <br>
+  <form [formGroup]="search">
+      <mat-form-field appearance="outline">
+          <mat-label>🌆Enter City</mat-label>
+          <input matInput  pattern="^[a-zA-Z]+$" placeholder="City" aria-label="City" [matAutocomplete]="auto" formControlName="city">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let city of Cities" [value]="city">
+              {{city}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="search.controls?.city.errors?.required || search.get('city').invalid ">⚠️Enter Valid City without spaces
+          </mat-error>
+        </mat-form-field> &nbsp;
+        <mat-form-field appearance="outline">
+            <mat-label>🏠Flat/PG</mat-label>
+            <mat-select placeholder="Flat/PG" formControlName="roomType" required>
+              <mat-option value="Flat">Flat</mat-option>
+              <mat-option value="PG">PG</mat-option>
+            </mat-select>
+            <mat-error *ngIf="search.controls?.roomType.errors?.required">⚠️Select Valid Option
+            </mat-error>
+          </mat-form-field>
+          <ng-container *ngIf="search.controls?.roomType.errors?.required || search.controls?.city.errors?.required || search.get('city').invalid; else elseTemplate">
+            &nbsp;&nbsp;&nbsp;
+            <span class="example-button-row" >
+                <button mat-raised-button color="primary" disabled>🔒Search</button>            
+            </span>
+        </ng-container>
+        <ng-template #elseTemplate>
+            &nbsp;&nbsp;&nbsp;
+            <span class="example-button-row" >
+                <button mat-raised-button color="primary" (click)='onsubmit()'>🔍Search</button>            
+            </span>
+        </ng-template>
+  </form>
+  <br >
+</div>
+  <br>
+</div>
+</div>
+</section>
+<br>
+<br>
+<section>
+<br><br>
+<div class="parallax" style="margin-left:150px; margin-right: 150px">
+  <div class="container">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5">
+    <h1 style="color: orangered;">FIND MY ROOM</h1>
+    <!-- <h5 style="background-color: rgb(153, 172, 189);"><em>
+    FindMyRoom is a platform where the Partner meets Customers 
+    and Customers meets Partners,
+    The users can search for the Flat/PG(Paying Guest) in this site.</em></h5> -->
+    </div>
+    </div> 
+  </div>
+</section>
+<section>
+<div class="container">
+    <br>
+    <br>
+    <div class="row about-cols">
+      <div class="col-md-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="about-col">
+          <div class="img">
+            <img src="../../../../assets/images/img.gif" style=" width:350px; height:220px" alt="image1" class="img-fluid">
+          </div>
+          <h2 class="title" align="center" style="color: rgb(44, 151, 240)">Our Ideals</h2>
+          <h5 align="center">
+           "To make the Partners and Renters meet at the One place"
+          </h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <div class="about-col">
+          <div class="img">
+            <img src="../../../../assets/images/hometrust.gif" style=" width:350px; height:220px" alt="image2" class="img-fluid">
+          </div>
+          <h2 class="title" align="center" style="color: rgb(44, 151, 240)">Trust and Transparency</h2>
+          <h5>  "We'll always try to make the Trustworthy and Transparent connections with our Partners" </h5>
+        </div>
+      </div>
+
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+        <div class="about-col">
+          <div class="img">
+            <img src="../../../../assets/images/homelock.gif" style=" width:350px; height:220px" alt="image3" class="img-fluid">
+          </div>
+          <h2 class="title" align="center" style="color: rgb(44, 151, 240)">Private</h2>
+          <h5> "The partners/Owners are all private"</h5>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+      <br>
+      <br>
+      <br>
+      <br>
+</section>
+<app-footer></app-footer>
+</body>
+</html>
+<!-- <br><br>
+<section>
+
+</section> -->

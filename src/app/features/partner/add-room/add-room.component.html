@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  
+</head>
+<body>
+    
+    <div align="center" style="border-radius:10px;">
+
+              <mat-toolbar color="primary">
+                  <mat-toolbar-row>
+                    <span >Add Room </span>
+                    <i class="material-icons"></i>
+                  </mat-toolbar-row>
+                  
+              </mat-toolbar><br>
+                
+
+              <div mat-dialog-content>
+              
+ <form [formGroup] = "roomForm" >
+      
+  <table style="width:70%" align="center">
+
+    <tr>
+        <td>
+            <strong>Room Type</strong>
+        </td> 
+        <td>
+                <mat-form-field class="example-full-width">
+                    <mat-select formControlName="RoomType">
+                        <mat-option value="Flat">Flat</mat-option>
+                         <mat-option value ="PG">PG</mat-option>   
+                    </mat-select>
+                </mat-form-field>
+
+
+        </td>
+    </tr>
+    <tr>
+              <td>
+                <strong>  Cost </strong> 
+                </td>
+              <td>
+                  <mat-form-field class="example-full-width">
+                         <input formControlName="RoomCost" matInput type="number" min="0" required placeholder="Cost">  
+                          <mat-error>  
+                             <span *ngIf="roomForm.get('RoomCost').invalid  && roomForm.get('RoomCost').hasError('required')">Cost must be between 1000 and 50000</span>  
+                         </mat-error>  
+                         <mat-error>  
+                              <span *ngIf="roomForm.get('RoomCost').invalid  && roomForm.get('RoomCost').hasError('min')">Cost must be between 1000 and 50000</span>  
+                          </mat-error>  
+                          <mat-error>  
+                                  <span *ngIf="roomForm.get('RoomCost').invalid  && roomForm.get('RoomCost').hasError('max')">Cost must be between 1000 and 50000</span>  
+                              </mat-error>  
+                  </mat-form-field>
+  
+              </td>    
+          </tr>
+      
+          <tr>
+              <td>
+                 <strong> Beds </strong>
+                </td>
+              
+              <td>
+
+                    <mat-form-field class="example-full-width">
+                            <mat-select formControlName="NumberOfRooms" required="Beds are required">
+                                <mat-option value="1">1</mat-option>
+                                 <mat-option value ="2">2</mat-option>
+                                 <mat-option value ="3">3</mat-option>   
+                                 <mat-option value ="4">4</mat-option>  
+                                 <mat-option value ="5">5</mat-option>   
+ 
+                            </mat-select>
+                        </mat-form-field>
+  
+                 
+  
+              </td>
+  
+  
+          </tr>
+          <tr>
+              <td>
+                  
+                <strong>City </strong>
+
+              </td>
+              <td>
+                  
+                  <mat-form-field class="example-full-width">
+                      <input matInput type="text" formControlName="City" required placeholder="City">
+                      <mat-error>  
+                              <span *ngIf="roomForm.get('City').invalid  && roomForm.get('City').hasError('required')">Please enter City</span>  
+                      </mat-error> 
+                      <mat-error>  
+                              <span *ngIf="roomForm.get('City').invalid  && roomForm.get('City').hasError('minlength')">Please enter valid city name</span>  
+                      </mat-error>  
+                      <mat-error>  
+                              <span *ngIf="roomForm.get('City').invalid  && roomForm.get('City').hasError('maxlength')">Please enter valid city name</span>  
+                      </mat-error> 
+                      <mat-error>  
+                              <span *ngIf="roomForm.get('City').invalid  && roomForm.get('City').hasError('pattern')">invalid city</span>  
+                      </mat-error>     
+                          
+                      
+                  </mat-form-field><br>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <strong>  Area</strong>
+                </td>
+              <td>
+  
+                  <mat-form-field class="example-full-width">
+                          <input matInput type="text" formControlName="Area" required placeholder="Area">
+                          <mat-error>  
+                                  <span *ngIf="roomForm.get('Area').invalid  && roomForm.get('Area').hasError('required')">Please enter valid Area</span>  
+                              </mat-error>
+                              
+                      </mat-form-field><br>
+              </td>
+          </tr>
+          <tr>
+                  <td>
+                    <strong>  Address </strong>
+                    </td>
+                  <td>
+      
+                      <mat-form-field class="example-full-width">
+                              <input matInput type="text" formControlName="Address" required placeholder="Address">
+                              <mat-error>  
+                                      <span *ngIf="roomForm.get('Address').invalid  && roomForm.get('Address').hasError('required')">Please enter proper Address</span>  
+                                  </mat-error>  
+                          </mat-form-field><br>
+                  </td>
+              </tr>
+  
+  
+          <tr>
+                  <td>
+                    <strong>  Furniture </strong>
+                    </td>
+                  <td>
+  
+                      <mat-form-field class="example-full-width">
+                              <!-- <input matInput type="text" formControlName="Furniture" required placeholder="furniture"> -->
+                              <mat-label>Furniture</mat-label>
+                            <mat-select formControlName="Furniture" required placeholder="Furniture">
+                                <mat-option  value="yes"> YES</mat-option>
+                                <mat-option  value="no"> NO</mat-option>
+
+                            </mat-select>
+                              <mat-error>  
+                                      <span *ngIf="roomForm.get('Furniture').invalid && roomForm.get('Furniture').touched && roomForm.get('Furniture').hasError('required')">Please enter Furniture</span>  
+                                  </mat-error>  
+                      </mat-form-field><br>
+                                 
+                  </td>
+          </tr>
+  
+          <tr>
+              <td>
+                  <strong>
+
+                      Description 
+                  </strong>
+              </td>
+              <td>
+                  <mat-form-field class="example-full-width">
+                          <textarea matInput type="text" formControlName="Description" required placeholder="Description"></textarea>
+                          <mat-error>  
+                                  <span *ngIf="roomForm.get('Description').invalid  && roomForm.get('Description').hasError('required')">Please enter description</span>  
+                              </mat-error> 
+                              <mat-error>  
+                                    <span *ngIf="roomForm.get('Description').invalid  && roomForm.get('Description').hasError('minlength')">Please enter valid Description</span>  
+                            </mat-error>  
+                            <mat-error>  
+                                    <span *ngIf="roomForm.get('Description').invalid  && roomForm.get('Description').hasError('maxlength')">Please enter valid Description</span>  
+                            </mat-error> 
+                            
+                              
+                  </mat-form-field><br>
+                  
+  
+              </td>
+          </tr>
+          <tr>
+                  <td>
+                      <strong>
+
+                          Pincode
+                      </strong>
+                  </td>
+                  <td>
+                      <mat-form-field class="example-full-width">
+                              <input matInput type="number" formControlName="Pincode" maxlength="6" required placeholder="Pincode">
+                              <mat-error>  
+                                      <span *ngIf="roomForm.get('Pincode').invalid  && roomForm.get('Pincode').hasError('required')">Please enter six digit pin</span>  
+                                  </mat-error> 
+                              <mat-error>  
+                                      <span *ngIf="roomForm.get('Pincode').invalid  && roomForm.get('Pincode').hasError('pattern')">invalid pin</span>  
+                              </mat-error> 
+                           
+                                  
+                      </mat-form-field><br>
+
+                    </td>      
+                     </tr>           
+
+                       <tr>
+
+                          <td>
+            
+                               <button mat-raised-button color="primary" md-mini-fab type="button" (click)="setlatlng()" onclick="document.getElementById('fileToUpload').click()">
+                                Choose Photo
+                              </button> 
+                              <input id="fileToUpload" type="file" #fileInput style="display:none;" required/>
+
+                              <!-- <button><input type="file" multiple style="display:none;" (change)="getFilesDetails($event)">Choose Photo</button> -->
+                              <!-- <label id="#bb"> Upload image
+                              <input type="file" #fileInput id="File" size="60">
+                              </label>  -->
+
+
+                              <!-- <button mat-raised-button color="warn" (click)="UploadFiles()">Upload</button> -->
+
+                            
+
+                          </td>
+                        <tr>
+
+                        
+                           <!-- <td>
+                              <input matInput type="text">
+                          </td> --> 
+                          <!-- <td>
+                           
+                        
+                        </td> -->
+                        <!-- 
+
+                      </tr> -->
+
+                     
+                      
+      
+                  
+              
+  
+  </table><br>
+    <button  mat-raised-button color="primary" (click)="view()">View Map</button>
+     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     <button  mat-raised-button color="primary" (click)="submit()">submit</button>
+     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     <button mat-raised-button color ="warn" mat-dialog-close>cancel</button>
+    
+ </form>
+  
+    </div> 
+  </div>
+</body>
+</html>
+
+
+ 
+

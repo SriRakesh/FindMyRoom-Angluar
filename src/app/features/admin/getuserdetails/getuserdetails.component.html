@@ -1,0 +1,27 @@
+
+ <div class="leftButton">
+  <button mat-raised-button color ="warn" (click)="Back()" >Back</button>
+  </div>
+  <section>
+   <table align="center" class="table-responsive">
+    <tr align="center">
+      <th><strong>User ID</strong></th>
+        <th><strong>User Name </strong> </th>
+        <th><strong>Email Id</strong></th>
+        <th><strong>Mobile Number</strong></th>
+        <th><strong>Address</strong> </th>
+        <th><strong>User Type</strong> </th>
+        <th><strong>Status</strong></th>
+     
+    </tr>
+  <tr *ngFor="let item of UserData">
+  <td>{{item.userId}}</td>
+  <td>{{item.userName}}</td>
+  <td>{{item.userEmail}}</td>
+  <td>{{item.userPhoneNumber}}</td>
+  <td>{{item.userAddress}}</td>
+  <td>{{item.userType}}</td>
+  <td>{{item.userStatus}}</td>
+  </tr>
+</table> 
+</section>

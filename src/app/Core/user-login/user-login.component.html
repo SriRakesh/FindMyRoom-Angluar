@@ -1,0 +1,61 @@
+
+<div mat-dialog-content>
+  <div class="main-div" align="center">
+    <mat-card class="example-card" >
+     <mat-card-header>
+       <mat-card-title class="cardtitle">Login</mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+       <form class="example-form" [formGroup]="Login">
+         <table class="example-full-width" cellspacing="0">
+           <tr>
+             <td>
+               <mat-form-field class="example-full-width">
+                  <mat-icon matSuffix>account_circle</mat-icon>
+               <input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+).([a-zA-Z]{2,5})$" matInput placeholder="UserEmail" formControlName="UserEmail" type="email" name="UserEmail" required>
+               
+               <mat-error *ngIf="f.UserEmail.hasError('required') && f.UserEmail.invalid">UserEmail is required</mat-error>  
+               <!-- <mat-error *ngIf="f.UserEmail.hasError('email') && f.UserEmail.invalid">UserEmail is invalid</mat-error>   -->
+               <mat-error *ngIf="f.UserEmail.hasError('pattern')">
+                  Email is invalid
+                </mat-error>
+              </mat-form-field>
+              
+             </td>
+           </tr>
+           <tr>
+           <td><mat-form-field class="example-full-width">
+             <input pattern="(?=^.{6,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" matInput [type]="hide?'password':'text'" placeholder="Password" formControlName="UserPassword" type="password" name="UserPassword">
+             <mat-error *ngIf="f.UserPassword.hasError('required')&& f.UserPassword.invalid">password is required</mat-error>
+             <mat-icon matSuffix (click)="hide =!hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          
+           
+           <mat-error *ngIf="f.UserPassword.hasError('pattern')">
+            Password is invalid
+         </mat-error>
+        </mat-form-field></td>
+          
+         </tr>
+        <tr><td>
+          <div class="password">
+          <a (click)="closeLoginDialog()">Forgot password</a>
+        </div>
+        </td></tr>
+       </table>
+       </form>
+     </mat-card-content>
+     <mat-card-actions>
+       <button mat-raised-button (click)="login()" color="primary">Login</button>
+     </mat-card-actions> 
+     <mat-card-actions>
+      <button mat-raised-button (click)= "role()" color="primary"><i class="fab fa-facebook"></i> Facebook Login</button>
+    </mat-card-actions> 
+     <!-- <button (click)="socialSignIn('facebook')">Sign in with Facebook</button> -->
+     <!-- <button (click)="socialSignIn('google')">Signin in with Google</button>   -->
+   </mat-card>
+  
+   </div>
+ </div>
+ 
+
+ 

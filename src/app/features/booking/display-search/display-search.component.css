@@ -1,0 +1,73 @@
+mat-sidenav-container{
+  height: 800px;
+}
+
+mat-sidenav, mat-sidenav-content{
+  padding:16px;
+  height: 800px;
+}
+
+mid-sidnav{
+  background-color: azure;
+  width: 200px;
+}
+button2{
+  align-content: center;
+  align-items: center;
+  align-self: center;
+}
+.example-card {
+  max-width: 400px;
+}
+
+
+
+  /* position:  */
+  
+
+
+/* body{
+  height: 100%;
+} */
+
+
+
+
+/* body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 20;
+    left: 0;
+    background-color: rgb(247, 249, 252);
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav input,select {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #807b7b;
+    display: block;
+  }
+  
+  .sidenav input:hover {
+    color: #2b2929;
+  }
+  
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    /* font-size: 28px;  /*Increased text to enable scrolling */
+   /* padding: 0px 10px;
+  } */
+  /*
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } */

@@ -1,0 +1,63 @@
+<html>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+      <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+<div class="container" style="margin-top:100px;">
+  <br><br>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3" align="center">
+            <br>
+              <img mat-card-image class="cards" src="../../../../assets/images/profile1.png"><br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <h3 align="center">No profile picture enjoy looking at my Name</h3>
+          </div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-5" align="center">
+            <br>
+            <table class="tab">
+              <tr>
+                <td><strong>Name</strong></td>
+                <td><strong>{{user.userName}}</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Email</strong></td>
+                <td><strong>{{user.userEmail}}</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Phone</strong></td>
+                <td><strong>{{user.userPhoneNumber}}</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Address</strong></td>
+                <td><strong>{{user.userAddress}}</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Type</strong></td>
+                <td><strong>{{user.userType}}</strong></td>
+              </tr>
+            </table>
+            <br>
+            <button mat-raised-button color ="primary" (click)="onDone()" >Done >></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color ="primary" (click)="update(user)" >Edit Details >></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+</div>
+
+<br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+<div class="leftButton">
+<button mat-raised-button color="primary" (click)="back()"  >Back</button>
+</div>
+
+ <!-- <div *ngFor="let item of flatArray">
+<div  style="margin-left: 300px ;margin-right: 300px">
+<mat-card class="example-card">
+
+  <span>  <img src="http://localhost:52687/api/{{item.roomId}}" style="width:30%"/></span>
+  <div>
+        <span>{{item.roomType}}</span>
+        <span>{{item.cost}}</span>
+        <span>{{item.noOfBeds}}</span>
+        <span>{{item.city}}</span><br>
+        <span>{{item.area}}</span>
+        <span>{{item.address}}</span>
+        <span>{{item.furniture}}</span>
+        <span>{{item.description}}</span>
+  </div>
+  <div>
+        <button mat-raised-button color="primary" (click)="updateDialog(item)">Update</button>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button  mat-raised-button color="warn" (click)="deleteDialog(item)">Delete</button>
+
+  </div>     
+</mat-card>
+</div>
+</div>  -->
+<section>
+<div *ngIf="!isNoRooms" class="Wishlist" align="center">
+ <table align="center" class="table-responsive" style="margin-left: 80px;" >
+    <tr align="center">
+      <!-- <th><strong>Room No</strong></th> -->
+        <th><strong>Property Type</strong> </th>
+        <th><strong>Cost</strong></th>
+        <th><strong>Beds</strong></th>
+        <th><strong>City</strong> </th>
+        <th><strong>Area</strong></th>
+        <th><strong>Address</strong></th>
+        <th><strong>Furniture</strong></th>
+        <th><strong>Description</strong></th>
+        <th><strong>Pincode</strong></th>
+        <th></th>
+        <th></th>
+        <th></th>     
+    </tr>
+    <tr *ngFor="let item of flatArray" align="center">
+       <!-- <td>{{item.roomId}}</td> -->
+        <td>{{item.roomType}}</td>
+        <td>{{item.cost}}</td>
+        <td>{{item.noOfBeds}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.area}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.furniture}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.pincode}}</td>
+        <td><button mat-raised-button color="primary"(click)="ViewDetails(item.roomId)">Image</button></td>
+        <td><button mat-raised-button *ngIf="!(this.type==='Admin')" color="primary" (click)="updateDialog(item)">Update</button></td>
+        <td><button mat-raised-button *ngIf="!(this.type==='Admin')" color="warn" (click)="deleteDialog(item)">Delete</button></td>
+        <!-- <td>{{item.pincode}}</td> -->
+        <!-- <td> <button mat-raised-button color="primary" (click)="updateDialog(item)">Update</button></td>
+        <td><button  mat-raised-button color="warn" (click)="deleteDialog(item)">Delete</button></td> -->
+
+
+
+
+      </tr>
+</table> 
+</div>
+
+<div *ngIf="isNoRooms" class="col"  align="middle"> 
+        <mat-card class="cards">
+            <img mat-card-image src="../../../../assets/images/noproperty.jpg" height="330" width="52" alt="no property ">
+          <mat-card-content >
+            <h3 align="center">
+              Sorry, currently no Flats/PGs in your properties list.
+            </h3>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+              <button mat-raised-button color="primary">Add Property</button>
+            </mat-card-actions> -->
+        </mat-card>
+</div>
+</section>

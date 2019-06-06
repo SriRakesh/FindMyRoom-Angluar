@@ -1,0 +1,72 @@
+
+<div class="leftButton">
+    <button mat-raised-button color ="warn" (click)="Back()" >Back</button>
+    </div>
+    <section>
+     <table align="center" class="table-responsive">
+        <tr align="center">
+          <th><strong>Partner ID</strong></th>
+            <th><strong>Full Name</strong> </th>
+            <th><strong>Email Id</strong></th>
+            <th><strong>Mobile Number</strong></th>
+            <th><strong>Address</strong> </th>
+            <th><strong>Status</strong></th>
+            <th><strong>Edit</strong></th>
+            <th><strong>View</strong></th>
+        </tr>
+        <tr *ngFor="let item of PartnerData">
+            <td>{{item.userId}}</td>
+      <td>{{item.userName}}</td>
+      <td>{{item.userEmail}}</td>
+      <td>{{item.userPhoneNumber}}</td>
+      <td>{{item.userAddress}}</td>
+      <td>{{item.userStatus}}</td>
+     <td><button mat-raised-button color ="primary" (click)="updateDetails(item)">Edit</button></td>
+     <td><button mat-raised-button color ="primary" (click)="View(item.userId)">View </button></td> 
+          </tr>
+    </table> 
+  </section>
+
+
+<!-- <section>
+    <br><br><br>
+    <div align="center">
+        <table>
+          <tr >
+            <td>
+                <button mat-raised-button color ="warn" (click)="Back()" >Back</button>
+               </td>
+     </tr>
+      </table>
+      </div>
+      <br><br>
+    
+    <table class="tab" align="center" border="1">
+    <tr class="tr1">
+      <th >User ID</th>
+      <th >User Name</th>
+      <th>User Password</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th>User Type</th>
+      <th>User Status</th>
+      <th>Edit</th>
+    </tr>
+    
+    <tr *ngFor="let item of PartnerData">
+     
+      <td>{{item.userId}}</td>
+      <td>{{item.userName}}</td>
+      <td>{{item.userPassword}}</td>
+      <td>{{item.userEmail}}</td>
+      <td>{{item.userPhoneNumber}}</td>
+      <td>{{item.userAddress}}</td>
+      <td>{{item.userType}}</td>
+      <td>{{item.userStatus}}</td>
+      <td><button mat-raised-button color ="primary" (click)="updateDetails(item)">Edit</button></td>
+    </tr>
+    </table>
+    <br><br>
+    <h2>{{status}}</h2>
+    </section> -->

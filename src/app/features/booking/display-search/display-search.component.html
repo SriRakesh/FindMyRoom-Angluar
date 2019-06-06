@@ -1,0 +1,131 @@
+
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened">
+      <br>
+      
+
+
+      <h4 style="text-align: center">👇Filters👇</h4>
+      <br>
+      <mat-form-field>
+        <mat-label>👉Price</mat-label>
+        <mat-select  [(ngModel)]="price" >
+          <mat-option>😄  ANY</mat-option>
+          <mat-option value=1>Below 10K</mat-option>
+          <mat-option value=2>Between 10K to 20K</mat-option>
+          <mat-option value=3>Between 20K to 30K</mat-option>
+          <mat-option value=4>Between 30K to 40K</mat-option>
+          <mat-option value=5>Between 40K to 50K</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+        <br>
+      <mat-form-field>
+        <mat-label>👉Furniture</mat-label>
+        <mat-select [(ngModel)]="furniture" >
+          <mat-option>😄  ANY</mat-option>
+          <mat-option value="yes">YES</mat-option>
+          <mat-option value="no">NO</mat-option>
+        </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+          <mat-label>👉No of Beds</mat-label>
+          <mat-select [(ngModel)]="noofrooms">
+            <mat-option>😄  ANY</mat-option>
+            <mat-option value=1>1</mat-option>
+            <mat-option value=2>2</mat-option>
+            <mat-option value=3>3</mat-option>
+            <mat-option value=4>4</mat-option>
+            <mat-option value=5>5</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field class="example-full-width">
+          <input type="text" matInput placeholder="👉Area" [matAutocomplete]="auto" [(ngModel)]="area">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let item of rooms" [value]="item.area" >{{item.area}}</mat-option>
+          </mat-autocomplete>
+          <mat-hint><br>💡Select from Available Area's</mat-hint>
+          <!-- <mat-error><span>⚠️enter valid area </span></mat-error> -->
+        </mat-form-field>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-raised-button primary matTooltipPosition="right"
+        matTooltip="Click Here for the filters" (click)="opened=!opened">🚪Filter</button>
+      
+
+        <button mat-raised-button primary matTooltipPosition="left"
+        matTooltip="back to search" style="float: right;" routerLink="/features/booking/search" >Back</button>
+        
+        <div *ngFor="let item of rooms |costfilter:price|bedfilter:noofrooms|areafilter:area|furniturefilter:furniture">
+
+        <div *ngIf="rooms?.length > 0 ;else elsebody">
+
+          <mat-accordion>
+            <br>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"> 
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+            <mat-chip-list><mat-chip>{{item.cost | currency:'INR'}}</mat-chip></mat-chip-list> &nbsp; &nbsp;
+            <mat-icon class="example-icon" style="color:green" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+            </mat-panel-title>
+            <mat-panel-description><strong><mat-chip-list><mat-chip color="primary" selected> CITY : {{item.city | uppercase }}</mat-chip><mat-chip style="background-color:rgb(166, 109, 206)" selected> AREA : {{item.area | uppercase}}</mat-chip></mat-chip-list>
+            </strong>
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+          
+            <mat-grid-list cols="2" rowHeight="2:1">
+                <mat-grid-tile>
+                  <img src="https://findmyroomwebapp.azurewebsites.net/api/{{item.roomId}}" style="width:300px;height: 300px;">
+                     <!-- <img src="http://localhost:52687/api/{{item.roomId}}" style="width: 300px;height: 300px;"> -->
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-chip-list><mat-chip style="background-color:rgb(189, 123, 228)">{{item.roomType | uppercase }}
+                      </mat-chip>
+                      <mat-chip>Beds: {{item.noOfBeds}}</mat-chip>
+                      <mat-chip>Furniture:   {{item.furniture | uppercase}}</mat-chip>
+                      <mat-chip>Description: {{item.description | uppercase }}</mat-chip>
+                    </mat-chip-list>
+                  </mat-grid-tile>                
+              </mat-grid-list>
+            <button mat-raised-button style="background-color: rgb(230, 230, 67);color:white;" (click)="addRoomTowishList(item.roomId)" >Wish List</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button style="background-color: rgb(113, 131, 236);color:white;" (click)="ViewMap(item.roomId)" >View Map</button>
+            <button mat-raised-button style="float: right;background-color: green;color:white;" (click)="book(item)">Book</button>
+            </mat-expansion-panel>
+            <br>     
+              
+          </mat-accordion>
+        </div>
+            <ng-template #elsebody>
+              <div align="center">
+                <br>
+                <hr>
+                <br><br><br><br>
+                <mat-card class="example-card"> 
+                    <img mat-card-image src="./../../../../assets/images/noflat.gif" alt="photo">
+                    <mat-card-content>
+                      <h3>🙁Currently Not Available.</h3>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-raised-button color="primary" routerLink="/features/booking/search">Go to Search</button>
+                      <br>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+              </ng-template> 
+            
+            </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+
+
+

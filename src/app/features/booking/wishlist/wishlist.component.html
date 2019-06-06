@@ -1,0 +1,99 @@
+<!-- <div *ngIf="showWishList"> -->
+  <body>
+    
+  
+<br><br><br>
+<div class="form-group" align="left" style="margin-left:15%;">
+  <button mat-raised-button color="accent" (click)="Back()" name="back">Back</button>
+</div> 
+<section>
+  <div class="Wishlist">
+    <div align="center" *ngIf="loginStatus">
+        
+       
+          <div class="title" align="center" >
+           <h1>Your WishList</h1> 
+          </div>
+        <br>
+    
+  <table *ngIf="!isWishListEmpty">
+    <tr align="center">
+      <th>Room</th>
+      
+      <th>Cost</th>
+      <th>No Of Beds</th>
+      <th>City</th>
+      <th>Area</th>
+      <th>Pincode</th>
+      <th>Furniture</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>RoomType</th>
+      <th style="width:330px">Actions</th>
+      <!-- <th></th> -->
+
+    </tr>
+      <!-- <button (click)="showWishListedRooms()">show wishlist</button> -->
+    <tr *ngFor="let item of wishListedRooms">
+      <td> <img src="https://findmyroomwebapp.azurewebsites.net/api/{{item.roomId}}" style="width:200px;height: 200px;"></td>
+      <!-- <td >{{item.roomId}}</td> -->
+      <td >{{item.cost}}</td>
+      <td>{{item.noOfBeds}}</td>
+      <td>{{item.city}}</td>
+      <td>{{item.area}}</td>
+      <td>{{item.pincode}}</td>
+      <td>{{item.furniture}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.roomType}}</td>
+      
+      <td>
+      <button mat-icon-button color="warn" *ngIf="item.isThereInWishList==1" matTooltip="remove from wishlist"  matTooltipPosition="above"  (click)="removeFromWishList(item.roomId)">
+  
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+
+      <button mat-icon-button id="av"  *ngIf="item.isThereInWishList==0"  matTooltip="re-add to wishlist"  matTooltipPosition="above"
+      matTooltipClass="example-tooltip-red" (click)="addRoomTowishList(item.roomId)" >
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="primary"  matTooltip="Book this room"  matTooltipPosition="above"
+      matTooltipClass="example-tooltip-red" *ngIf="item.availability==1" (click)="book(item)">Book</button>
+      <button mat-raised-button disabled *ngIf="item.availability==0">Book</button>
+      </td>
+
+      <!-- <td> <button mat-raised-button color="primary">Book</button></td> -->
+
+    </tr>
+  </table>
+
+</div>
+
+<div *ngIf="isWishListEmpty" align="middle">
+    <mat-card class="cards">
+        <img mat-card-image src="../../../../assets/images/noflat.gif" height="430" width="52" alt="no property ">
+        <br>
+      <mat-card-content >
+        <h3 align="center">
+          Your wishlist is currently empty.
+        </h3>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+          <button mat-raised-button color="primary">Add Property</button>
+        </mat-card-actions> -->
+    </mat-card>
+</div>
+
+<div align="center" *ngIf="!loginStatus">
+  <br>
+  <br>
+  <br>
+<h1>
+  {{message}}
+  <!-- {{userType}}
+{{userLoginId}} -->
+</h1>
+</div>
+</div>
+</section>
+</body>

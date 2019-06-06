@@ -1,0 +1,51 @@
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  
+  <div class="custom-padding">
+      
+      <nav>
+            <div align="left">
+          <div class="logo" align="left"><a *ngIf="!isUserLogin" href="">Find<span>My</span>Room</a></div>
+          <div class="logo" align="left"><a *ngIf="isRenter" href="">Find<span>My</span>Room</a></div>
+          <div class="logo" align="left"><a *ngIf="isPartner" routerLink="/features/partner/partnerhome">
+            Find<span>My</span>Room<span>Partner</span></a></div>
+        <div class="logo" align="left"><a *ngIf="isAdmin" routerLink="/features/admin/adminhome">
+            Find<span>My</span>Room<span>Admin</span></a></div>
+        </div>
+
+
+          <ul class="menu-area">
+         <!-- <li><a *ngIf="!isUserLogin" (click)="signUp()" style="color:white;">SignUp</a></li>        
+          <li><a *ngIf="!isUserLogin" (click)="openDialog()" style="color:white;" >Login</a></li>
+           <li><a *ngIf="isAdmin" routerLink="/features/admin/adminhome" style="color:honeydew;">Dashboard</a>&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
+          <!-- <li><a *ngIf="isRenter" routerLink="/features/booking/wishlist" style="color:honeydew;">Wishlist</a>&nbsp;&nbsp;&nbsp;&nbsp;</li> -->
+          <!-- <label style="color: white;" *ngIf="isUserLogin || isLogin">{{name}}</label> -->
+          <!-- <div class="logo"><a href="">Find<span>Ur</span>Space</a></div> -->
+
+
+         <li><a *ngIf="!isUserLogin" (click)="signUp()" style="color:white;">SignUp</a></li>        
+          <li><a *ngIf="!isUserLogin" (click)="openDialog()" style="color:white;" >Login</a></li>
+           <li><a *ngIf="isRenter" routerLink="/features/booking/wishlist" style="color:honeydew;">Wishlist</a></li>
+          <li> <a *ngIf="isUserLogin || isLogin" routerLink="/features/profile" style="color: white;" >Profile</a></li>
+          <!-- <li> <a *ngIf="isUserLogin || isLogin" routerLink="/features/profile" style="color: white;" >Hi, {{name}}</a></li> -->
+          <li><a *ngIf="isUserLogin" style="color: white;" (click)="onLogout()" >LogOut</a></li>
+            
+          </ul>
+      </nav>
+  </div>
+  <div id="feedback">
+    <!-- <button mat-fab style="color:rgb(253, 252, 252);background-color:rgb(253, 250, 250)" (click)='bot()'><img src="./../../../assets/images/bot.gif" style="height:50px;width:50px;"></button> -->
+    <mat-chip-list>
+        <mat-chip color="primary" selected>Hai</mat-chip>
+      </mat-chip-list>
+    <img id="bot" src="./../../../assets/images/bot.gif" style="height:80px;width:80px;" (click)='bot()'>
+
+</div>
+  <!-- <div id="mybutton">
+    <button class="feedback">Feedback</button>
+</div>  -->
+
+
+
+
+           

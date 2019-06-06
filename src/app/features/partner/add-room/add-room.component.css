@@ -1,0 +1,56 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 50%;
+  }
+  
+  .example-full-width {
+    width:100%;
+  }
+
+  .marg{
+      margin-left: 200px;
+  }
+  #top{
+    height: 100px;
+    }
+
+  .example-card {
+   width: 170px;
+   color:rgb(14, 14, 117);
+        
+        
+      }   
+      
+  .post{
+
+        margin: 10;
+        color:rgb(20, 20, 126);
+        font-weight: normal;
+        font-family: 'Ultra', sans-serif;   
+        font-size: 36px;
+        line-height: 42px;
+        text-transform: uppercase;
+        text-shadow: 0 2px white, 0 3px #777;
+      }
+    .ex1 {
+        margin-right: 0px;
+      }
+      table{
+        font-family:sans-serif;
+        font-size: 13px;
+      }
+
+
+      label{
+        padding: 10px;
+        background:blue; 
+        display: table;
+        color: #fff;
+         }
+    
+    
+    
+    input[type="file"] {
+        display: none;
+    }
